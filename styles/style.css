@@ -101,7 +101,7 @@
   background-color: var(--bg-color);
   border: var(--border);
   display: grid;
-  width: clamp(375px, 48.7%, 700px); 
+  width: clamp(375px, 48.7%, 700px);
 }
 
 .card_title {
