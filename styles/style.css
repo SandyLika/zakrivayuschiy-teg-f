@@ -62,6 +62,8 @@
   font-family: "Press Start 2P";
   margin: 100px 0;
   height: clamp(20.438rem, 19.506rem + 4.66vw, 23rem);
+  padding-top: clamp(7.5rem, 7.357rem + 0.714vw, 8rem);
+  padding-bottom: clamp(7.5rem, 7.357rem + 0.714vw, 8rem);
 }
 
 .header-continer {
@@ -70,16 +72,19 @@
   align-items: center;
   justify-items: center;
   text-transform: uppercase;
-  padding: 128px 0;
 }
 
 .header-continer_logo {
   font-size: var(--font-size-title);
   text-decoration: none;
+  font-weight: var(--font-weight);
+  line-height: var(--font-size-title);
 }
 
 .header-continer_title {
-  font-size: var(--font-size-accent);
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+ font-weight: var(--font-weight);
+ line-height: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem) ;
 }
 
 .main {
@@ -96,7 +101,7 @@
   background-color: var(--bg-color);
   border: var(--border);
   display: grid;
-  width: clamp(375px, 48.7%, 700px);
+  width: clamp(375px, 48.7%, 700px); 
 }
 
 .card_title {
@@ -170,7 +175,16 @@
   z-index: 1;
 }
 
+
 /*@supports*/
+
+@supports ((text-stroke: 1px var(--white)) or (-webkit-text-stroke: 1px var(--white))) {
+  .card-img_watermark {
+    -webkit-text-stroke: 1px var(--white);
+    text-stroke: 1px var(--white);
+    text-shadow: none;
+  }
+}
 
 .card_text {
   padding: 25px;
@@ -388,20 +402,16 @@
 }
 
 .floppy {
-  fill: #000;
-  width: 21px;
-  color: #000;
+  fill:var(--mix-blm);
   mix-blend-mode: difference;
-  width: 21px;
-  height: 21px;
+  z-index: 1;
+  position: relative;
 }
 
 .floppy-main {
   width: 21px;
   height: 21px;
-  padding: 15px 0 15px 19px;
 }
-
 /* диалог */
 
 .dialog[open] {
@@ -447,4 +457,13 @@ dialog::backdrop {
   width: 39px;
   height: 39px;
   padding-top: 42px;
+}
+
+@media (width <=375px) {
+  .header {
+    width: 100%;
+  }
+  .card {
+    width: 100%;
+  }
 }

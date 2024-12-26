@@ -4,7 +4,7 @@
   --font-accent: 'PressStart2P-Regular';
   --font-size:18px;
   --font-size-accent:14px;
-  --font-size-title:49px;
+  --font-size-title:clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);;
   --text-color:#000;
   --bg-color:#fff;
   --font-weight: 400;
