@@ -10,24 +10,6 @@
 
 */
 
-@keyframes opacity {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes scale {
-  from {
-    scale: 1;
-  }
-  to {
-    scale: 1.25;
-  }
-}
-
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
@@ -37,9 +19,9 @@
   background-size: cover;
   background-attachment: fixed;
   margin: 0;
-  background-color: var(--bg-color);
-  font-family: var(--font);
-  color: var(--text-color);
+  background-color: var(--bg-color, #fff);
+  font-family: var(--font,sans-serif);
+  color: var(--text-color, #000);
   font-variation-settings: 'wght' var(--font-weight, 400);
   display: grid;
   align-items: center;
@@ -56,10 +38,10 @@
   justify-items: center;
   gap: 25px;
   border: var(--border);
-  background-color: var(--bg-color);
+  background-color: var(--bg-color, #fff);
   width: clamp(375px, 48.7%, 700px);
-  font: var(--font-accent);
-  font-family: "Press Start 2P";
+  font: var(--font-accent, fantasy);
+  font-family: "Press Start 2P", fantasy;
   margin: 100px 0;
   height: clamp(20.438rem, 19.506rem + 4.66vw, 23rem);
   padding-top: clamp(7.5rem, 7.357rem + 0.714vw, 8rem);
@@ -106,10 +88,10 @@
 
 .card_title {
   padding: 5px 10px;
-  font:var(--font);
-  font-family: "Inter-Variable";
+  font:var(--font, sans-serif);
+  font-family: "Inter-Variable", sans-serif;
   font-variation-settings: 'wght' var(--font-weight-title,700);
-  font-size: var(--font-size);
+  font-size: var(--font-size, 18px);
 }
 
 
@@ -127,31 +109,31 @@
   object-position: center;
 }
 
-.card:nth-child(2) .card-img_image {
+.retro-img {
   filter: saturate(0.2);
 }
 
-.card:nth-child(3) .card-img_image {
+.neon-img {
   filter: saturate(3.5);
 }
 
-.card:nth-child(4) .card-img_image {
+.pink-img {
   filter: hue-rotate(30deg);
 }
 
-.card:nth-child(5) .card-img_image {
+.reverse-img {
   filter: invert(0.8);
 }
 
-.card:nth-child(6) .card-img_image {
+.broun-img {
   filter: sepia(0.9);
 }
 
-.card:nth-child(7) .card-img_image {
+.blur-img {
   filter: blur(10px);
 }
 
-.card:nth-child(8) .card-img_image {
+.pink-green-img {
   filter: hue-rotate(90deg) blur(2px) opacity(0.7) brightness(0.6);
 }
 
@@ -160,28 +142,30 @@
   justify-self: end;
   margin-block-start: max(23px, 1.736%);
   margin-inline-end: max(11px, 1.736%);
-  color: var(--text-color);
-  font: var(--font-accent);
-  font-family: "Press Start 2P";
+  color: var(--text-color, #000);
+  font: var(--font-accent, fantasy);
+  font-family: "Press Start 2P", fantasy;
   font-size: 0.875rem;
-  font-weight: var(--font-weight);
+  font-weight: var(--font-weight, 400);
   text-shadow:
-    -1px 0 var(--text-shadow-color),
-    0 1px var(--text-shadow-color),
-    1px 0 var(--text-shadow-color),
-    0 -1px var(--text-shadow-color);
+    -1px 0 var(--text-shadow-color, #fff),
+    0 1px var(--text-shadow-color, #fff),
+    1px 0 var(--text-shadow-color, #fff),
+    0 -1px var(--text-shadow-color, #fff);
   opacity: 0.5;
   mix-blend-mode: hard-light;
   z-index: 1;
 }
 
-
+.up {
+  text-transform: uppercase;
+}
 /*@supports*/
 
 @supports ((text-stroke: 1px var(--white)) or (-webkit-text-stroke: 1px var(--white))) {
   .card-img_watermark {
-    -webkit-text-stroke: 1px var(--white);
-    text-stroke: 1px var(--white);
+    -webkit-text-stroke: 1px var(--white, #fff);
+    text-stroke: 1px var(--white, #fff);
     text-shadow: none;
   }
 }
@@ -190,10 +174,9 @@
   padding: 25px;
   display: grid;
   gap: 27px;
-  font:var(--font);
-  font-family: "Inter-Variable";
-  font-size: var(--font-size);
-  font-variation-settings: 'wght' var(--font-weight, 400);
+  font:var(--font,sans-serif);
+  font-family: "Inter-Variable", sans-serif;
+  font-size: var(--font-size, 18px);
   line-height: 21px;
 }
 
@@ -221,9 +204,9 @@
 .button__text {
   position: relative;
   color: var(--mix-blm);
-  font: var(--font-accent);
-  font-family: "Press Start 2P";
-  font-size: var(--font-size-accent);
+  font: var(--font-accent, fantasy);
+  font-family: "Press Start 2P", fantasy;
+  font-size: var(--font-size-accent, 14px);
   line-height: 12.6px;
   mix-blend-mode: difference;
   z-index: 1;
@@ -248,7 +231,7 @@
   block-size: 100%;
   width: 100%;
   height: 100%;
-  background-color: var(--black);
+  background-color: var(--black, #000);
   transform: translateX(-100%);
   transition: transform 0.5s ease-in-out;
   background-blend-mode: difference;
@@ -265,7 +248,7 @@
 
 .button:focus-visible {
   outline: none;
-  box-shadow: 2px 2px 0 var(--black);
+  box-shadow: 2px 2px 0 var(--black, #000);
   transition: 0.3s ;
 }
 
@@ -277,15 +260,22 @@
   background-color: transparent;
   border: 2px solid transparent;
   cursor: pointer;
+  block-size: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.like-icon {
-  padding-top: 4px;
+.like-icon .heart{
+ inline-size: 24px;
+ block-size: 27px;
+ width: 24px;
+ height: 27px;
 }
 
 .sparks {
   opacity: 0;
-  fill: var(--red);
+  fill: var(--red, #f00);
 }
 
 .core {
@@ -299,7 +289,7 @@
 }
 
 .contour {
-  fill: var(--black);
+  fill: var(--black,#000);
 }
 
 
@@ -319,13 +309,13 @@
 /* hover */
 
 .like-icon:hover .core {
-  fill: var(--black);
+  fill: var(--black,#000);
   transition: fill 0.3s  linear;
   transition-delay: 0.03s;
 }
 
 .like-icon:hover .main-body {
-  fill: var(--black);
+  fill: var(--black,#000);
   transition: fill 0.3s  linear;
   transition-delay: 0.05s;
 }
@@ -334,13 +324,13 @@
 /* active */
 
 .like-icon:active .core {
-  fill: var(--red);
+  fill: var(--red,#f00);
   transition: fill 0.3s  linear;
   transition-delay: 0.03s;
 }
 
 .like-icon:active .main-body {
-  fill: var(--red);
+  fill: var(--red,#f00);
   transition: fill 0.3s  linear;
   transition-delay: 0.05s;
 }
@@ -349,19 +339,19 @@
 /* лайнуто */
 
 .like-icon.is-liked .core {
-  fill: var(--red);
+  fill: var(--red, #f00);
   transition: fill 0.3s  linear;
   transition-delay: 0s;
 }
 
 .like-icon.is-liked .main-body {
-  fill: var(--red);
+  fill: var(--red,#f00);
   transition: fill 0.3s  linear;
   transition-delay: 0.03s;
 }
 
 .like-icon.is-liked .contour {
-  fill: var(--red);
+  fill: var(--red,#f00);
   transition: fill 0.3s  linear;
   transition-delay: 0.05s;
 }
@@ -381,29 +371,28 @@
 /* сохранить */
 
 .button-save {
-  background-color: var(--bg-color);
+  background-color: var(--bg-color,#fff);
   border: 2px solid #000;
   cursor: pointer;
   display: grid;
   grid-template-columns: repeat(2, auto);
   gap: 8px;
-  padding: 0;
-  margin-top: 54px;
+  padding:0 21px 0 15px ;
   margin-bottom: 103px;
 }
 
 .button__text-save {
-  padding: 18.5px 21px 18.5px 0;
-  font: var(--font-accent);
-  font-family: "Press Start 2P";
-  font-size: var(--font-size-accent);
-  font-weight: var(--font-weight );
+  padding: 18.5px 0 18.5px 0;
+  font: var(--font-accent, fantasy);
+  font-family: "Press Start 2P", fantasy;
+  font-size: var(--font-size-accent,14px);
+  font-weight: var(--font-weight,400 );
   line-height: 12.6px;
 }
 
 .floppy {
+  margin: 15px 0 15px 0;
   fill:var(--mix-blm);
-  mix-blend-mode: difference;
   z-index: 1;
   position: relative;
 }
@@ -415,11 +404,10 @@
 /* диалог */
 
 .dialog[open] {
-  width: 353px;
-  height: 191px;
+  width: 353px ;
   padding: 30px;
   border: var(--border);
-  background-color: var(--bg-color);
+  background-color: var(--bg-color,#fff);
   display: grid;
   grid-template-columns: repeat(2, auto);
   grid-template-rows: repeat(2, auto);
@@ -427,7 +415,6 @@
   justify-items: center;
   align-items: center;
   gap: 30px 20px;
-  overflow: hidden;
 }
 
 dialog::backdrop {
@@ -435,35 +422,58 @@ dialog::backdrop {
 }
 
 .dialog_title {
-  color: var(--text-color);
-  font: var(--font-accent);
-  font-family: "Press Start 2P";
-  font-size: var(--font-size-accent);
-  font-weight: var(--font-weight );
+  color: var(--text-color,#000);
+  font: var(--font-accent,fantasy);
+  font-family: "Press Start 2P", fantasy;
+  font-size: var(--font-size-accent,14px);
+  font-weight: var(--font-weight,400 );
   line-height: 21px;
 }
 
 .dialog_button {
-  background-color: var(--bg-color);
+  background-color: var(--bg-color,#fff);
   border: 2px solid #000;
   cursor: pointer;
   grid-column: 1/3;
   width: 293px;
   height: 38px;
-  padding: 0px;
+  padding: 0;
 }
 
 .floppy-dialog {
   width: 39px;
   height: 39px;
-  padding-top: 42px;
 }
 
-@media (width <=375px) {
+@media (width <= 375px) {
   .header {
     width: 100%;
   }
   .card {
     width: 100%;
+  }
+  .dialog[open] {
+    width: 341px;
+    padding: 32px 42px;
+  }
+  .dialog_button {
+    width: 257px;
+  }
+  .button-save {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+    justify-content: center;
+    justify-items: center;
+  }
+  .floppy-main {
+    grid-row: 1/2;
+    grid-column: 1/3;
+    margin-bottom: 0;
+  }
+  .button__text-save {
+    grid-row: 2/3;
+    padding-top: 0;
+    grid-column: 1/3;
   }
 }
