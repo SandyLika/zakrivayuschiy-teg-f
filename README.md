@@ -1,1 +1,1 @@
-https://github.com/SandyLika/zakrivayuschiy-teg-f.git
+https://sandylika.github.io/zakrivayuschiy-teg-f/
