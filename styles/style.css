@@ -42,7 +42,7 @@
   width: clamp(375px, 48.7%, 700px);
   font: var(--font-accent, fantasy);
   font-family: "Press Start 2P", fantasy;
-  margin: 100px 0;
+  margin: 100px 0 102px;
   height: clamp(20.438rem, 19.506rem + 4.66vw, 23rem);
   padding-top: clamp(7.5rem, 7.357rem + 0.714vw, 8rem);
   padding-bottom: clamp(7.5rem, 7.357rem + 0.714vw, 8rem);
@@ -73,7 +73,7 @@
   display: grid;
   align-items: center;
   justify-items: center;
-  gap: 50px;
+  gap: 52px;
 }
 
 
@@ -87,7 +87,7 @@
 }
 
 .card_title {
-  padding: 5px 10px;
+  padding: 3px 10px;
   font:var(--font, sans-serif);
   font-family: "Inter-Variable", sans-serif;
   font-variation-settings: 'wght' var(--font-weight-title,700);
@@ -171,7 +171,7 @@
 }
 
 .card_text {
-  padding: 25px;
+  padding: 26px 25px 25px;
   display: grid;
   gap: 27px;
   font:var(--font,sans-serif);
@@ -179,7 +179,6 @@
   font-size: var(--font-size, 18px);
   line-height: 21px;
 }
-
 
 /* button */
 
@@ -189,7 +188,7 @@
   margin-block-end: 25px;
   display: grid;
   grid-template-columns: repeat(2, auto);
-  gap: 10px;
+  gap: 4px;
 }
 
 .button {
@@ -266,11 +265,9 @@
   align-items: center;
 }
 
-.like-icon .heart {
- inline-size: 24px;
- block-size: 27px;
- width: 24px;
- height: 27px;
+.like-icon {
+  width: 39px;
+  height: 36px;
 }
 
 .sparks {
@@ -392,7 +389,8 @@
 
 .floppy {
   margin: 15px 0 15px 0;
-  fill:var(--mix-blm);
+  color: var(--mix-blm,#fff);
+  /* mix-blend-mode: difference; */
   z-index: 1;
   position: relative;
 }
@@ -404,7 +402,8 @@
 /* диалог */
 
 .dialog[open] {
-  width: 353px ;
+  max-width: 358px;
+  /* width: clamp(21.313rem, 21.0489rem + 1.1268vw, 22.063rem); */
   padding: 30px;
   border: var(--border);
   background-color: var(--bg-color,#fff);
@@ -445,15 +444,30 @@ dialog::backdrop {
   height: 39px;
 }
 
-@media (width <= 375px) {
+@media (max-width: 375px) {
   .header {
     width: 100%;
+    margin-bottom: 104px;
   }
   .card {
     width: 100%;
   }
+  .card_title {
+    padding-top: 3px;
+    padding-bottom: 5px;
+  }
+  .card_title-normal {
+    padding-top: 4px;
+    padding-bottom: 6px;
+  }
+  .card_text {
+    padding-top: 25px;
+  }
+  .tx {
+    padding-top: 27px;
+  }
   .dialog[open] {
-    width: 341px;
+    max-width: 350px;
     padding: 32px 42px;
   }
   .dialog_button {
@@ -470,6 +484,8 @@ dialog::backdrop {
     grid-row: 1/2;
     grid-column: 1/3;
     margin-bottom: 0;
+    inline-size: 28px;
+    block-size: 28px;
   }
   .button__text-save {
     grid-row: 2/3;
